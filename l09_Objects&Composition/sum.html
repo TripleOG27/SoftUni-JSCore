@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<input type="text" id="num1" onclick=""/>
+<input type="text" id="num2" />
+<input type="text" id="result" readonly />
+<br>
+<button id="sumButton" onclick="sum()">
+    Sum</button>
+<button id="subtractButton" onclick="sub()">
+    Subtract</button>
+<script>
+    function solve() {
+        let el1,el2,res
+        return{
+            init:function (selector1,selector2,resultSelector) {
+                el1 = $(selector1)
+                el2 = $(selector2)
+                res = $(resultSelector)
+            },
+            add:function () {
+                res.val(Number(el1.val())+Number(el2.val()))
+            },
+            subtract:function () {
+                res.val(Number(el1.val())-Number(el2.val()))
+            }
+        }
+    }
+    let obj = solve()
+    function sum() {
+        obj.init('#num1','#num2','#result')
+        obj.add()
+    }
+    function sub() {
+        obj.init('#num1','#num2','#result')
+        obj.subtract()
+    }
+
+</script>
+</body>
+</html>
